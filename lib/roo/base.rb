@@ -244,7 +244,7 @@ class Roo::Base
       [col, cell(@header_line,col)]
     end]
     #-- id
-    if args[0].class == Fixnum
+    if args[0].class == Integer
       rownum = args[0]
       if @header_line
         [Hash[1.upto(self.row().size).map {|j|
@@ -309,7 +309,7 @@ class Roo::Base
     read_cells(sheet)
     row, col = normalize(row,col)
     cell_type = case value
-                when Fixnum then :float
+                when Integer then :float
                 when String, Float then :string
                 else
                   raise ArgumentError, "Type for #{value} not set"
@@ -623,7 +623,7 @@ class Roo::Base
   # converts cell coordinate to numeric values of row,col
   def normalize(row,col)
     if row.class == String
-      if col.class == Fixnum
+      if col.class == Integer
         # ('A',1):
         # ('B', 5) -> (5, 2)
         row, col = col, row
@@ -711,7 +711,7 @@ class Roo::Base
     case sheet
     when nil
       raise ArgumentError, "Error: sheet 'nil' not valid"
-    when Fixnum
+    when Integer
       self.sheets.fetch(sheet-1) do
         raise RangeError, "sheet index #{sheet} not found"
       end
