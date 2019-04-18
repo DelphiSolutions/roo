@@ -198,7 +198,7 @@ class Roo::Excel < Roo::Base
 
   # converts name of a sheet to index (0,1,2,..)
   def sheet_no(name)
-    return name - 1 if name.is_a?(Fixnum)
+    return name - 1 if name.is_a?(Integer)
     worksheets.each_with_index do |worksheet, index|
       return index if name == normalize_string(worksheet.name)
     end
@@ -306,7 +306,7 @@ class Roo::Excel < Roo::Base
 
     cell = read_cell_content(row, idx)
     case cell
-    when Integer, Fixnum, Bignum
+    when Integer
       value_type = :float
       value = cell.to_i
     when Float

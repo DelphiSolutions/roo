@@ -266,7 +266,7 @@ class Roo::Excelx < Roo::Base
   # returns the sheet index by name
   # passed indexes through
   def sheet_index(sheet)
-    if sheet.is_a?(Fixnum)
+    if sheet.is_a?(Integer)
       sheet
     else
       sheets.index(sheet)

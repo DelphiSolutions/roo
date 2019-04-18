@@ -9,7 +9,7 @@ require File.dirname(__FILE__) + '/../lib/roo/version.rb'
 version  = Roo::VERSION::STRING
 download = 'http://rubyforge.org/projects/roo'
 
-class Fixnum
+class Integer
   def ordinal
     # teens
     return 'th' if (10..19).include?(self % 100)
